@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :user do
     username { Faker::Internet.user_name }
-    password_digest { Faker::Lorem.words(1) }
+    password { Faker::Internet.user_name }
   end
 end
