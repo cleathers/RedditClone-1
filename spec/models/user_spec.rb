@@ -32,7 +32,6 @@ describe User do
   end
 
   describe "User Model Functions" do
-
     describe "Password functions" do
       it "should have password setter method" do
         expect{new_user.password = Faker::Internet.user_name}.to change{new_user.password_digest}
@@ -46,13 +45,15 @@ describe User do
 
     describe "User class methods" do
       it "should find user by credentials" do
-
         new_user.save!
-        expect(User.find_by_credentials(new_user)).to eq(new_user)
-        expect(User.find_by_credentials(new_user)).not_to eq(User.new)
+        expect(User.find_by_credentials(new_user.username, new_user.password)).to eq(new_user)
+        expect(User.find_by_credentials(new_user.username, new_user.password)).not_to eq(User.new)
       end
-
     end
+  end
+
+  describe "Associations" do
+    it { should have_many(:subs)}
   end
 
 

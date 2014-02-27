@@ -29,6 +29,11 @@ GEM
     arel (4.0.2)
     atomic (1.1.15)
     bcrypt-ruby (3.1.2)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.1.4)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -49,6 +54,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -184,6 +190,8 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  better_errors
+  binding_of_caller
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails

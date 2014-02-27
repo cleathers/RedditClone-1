@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  def self.find_by_credentials(params)
-    user = User.find_by_username(params.username)
-    user.is_password?(params.password) ? user : nil
+  def self.find_by_credentials(username, password)
+    user = User.find_by_username(username)
+    user.is_password?(password) ? user : nil
   end
 
   def self.generate_token
