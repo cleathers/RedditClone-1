@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
-    username "MyString"
-    password_digest "MyString"
-    token "MyString"
+    username { Faker::Internet.user_name }
+    password_digest { Faker::Lorem.words(1) }
   end
 end
