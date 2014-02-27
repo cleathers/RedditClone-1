@@ -1,5 +1,5 @@
 RedditClone::Application.routes.draw do
-  root :to => 'users#new'
+  root :to => 'subs#index'
 
   resources :users, :only => [:new, :create] do
     resources :subs, shallow: true

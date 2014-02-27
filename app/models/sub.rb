@@ -7,5 +7,7 @@ class Sub < ActiveRecord::Base
               :foreign_key => :mod_id,
               :primary_key => :id
 
-  has_many    :links
+
+  has_many :link_subs
+  has_many :links, through: :link_subs, :source => :link
 end
