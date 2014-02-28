@@ -1,0 +1,42 @@
+<% action = ( flag == :new ? user_subs_url(current_user.id) :
+                             sub_url(sub) ) %>
+<% method = ( flag == :new ? "POST" : "PATCH" ) %>
+<% message = ( flag == :new ? 'Create Sub' : 'Edit Sub' ) %>
+
+
+<h1><%= message %></h1>
+
+<form action='<%= action %>' method='POST'>
+    <input type='hidden' name='_method' value='<%= method %>' >
+  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>' >
+
+
+  <label>
+    Sub Name
+    <input type='text' name='sub[name]' value='<%= sub.name %>'>
+  </label>
+  <br/>
+    <% sub.links.each_with_index do |link, idx| %>
+    <label>
+      Title
+      <input type='text' name='links[<%= idx %>][title]' value='<%= link.title %>'>
+    </label>
+    <label>
+      URL
+      <input type='url' name='links[<%= idx %>][url]' value='<%= link.url %>'>
+    </label>
+    <label>
+      Text
+      <textarea name='links[<%= idx %>][body]'><%= link.body %></textarea>
+    </label>
+      <br>
+    <% end %>
+  <br>
+
+  <button><%= message %></button>
+
+</form>
+
+
+
+

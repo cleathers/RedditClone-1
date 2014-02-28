@@ -1,0 +1,12 @@
+<h1>Subs</h1>
+<hr>
+
+<ul>
+<% @subs.each do |sub| %>
+    <li><%= link_to sub.name, sub_url(sub) %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<h3><%= link_to "New Sub", new_user_sub_url(current_user.id) %></h3>
